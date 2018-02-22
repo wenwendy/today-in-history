@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Card from './Card.js'
 
 class App extends Component {
 
@@ -45,9 +46,7 @@ class App extends Component {
         </header>
         <ul>
           {items.map(item => (
-            <li key={item.Title}>
-              {item.Name} {item.Description}
-            </li>
+            <Card title={item.Title} name={item.Name} description={item.Description} />
           ))}
         </ul>
       </div>
