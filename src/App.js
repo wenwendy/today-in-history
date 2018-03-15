@@ -46,7 +46,7 @@ class App extends Component {
         </header>
         <ul>
           {items.map(item => (
-            <Card title={item.Title} name={item.Name} description={item.Description} />
+            <Card item={item} />
           ))}
         </ul>
       </div>
