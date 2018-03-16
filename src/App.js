@@ -10,8 +10,8 @@ class App extends Component {
       this.state = {
         error: null,
         isLoaded: false,
-        items: [],
-        itemToday: {}
+        breaches: [],
+        breachesToday: {}
       };
     }
 
@@ -22,8 +22,8 @@ class App extends Component {
         (result) => {
           this.setState({
             isLoaded: true,
-            items: result,
-            itemToday: this.getItemToday(result)
+            breaches: result,
+            breachesToday: this.getBreachesToday(result)
           });
         },
         // Note: it's important to handle errors here
@@ -39,7 +39,7 @@ class App extends Component {
   }
 
 
-  getItemToday(breaches, today=new Date()){
+  getBreachesToday(breaches=this.state.breaches, today=new Date()){
     var breachesToday = [];
     var todayDD = today.getDate();
     var todayMM = today.getMonth() + 1;
@@ -49,7 +49,7 @@ class App extends Component {
       var breachDate = new Date(breach.BreachDate);
       var breachDD = breachDate.getDate();
       var breachMM = breachDate.getMonth() + 1;
-      //console.log(breach.BreachDate + ': ' + breachMM + '-' + breachDD);
+      console.log(breach.BreachDate + ': ' + breachMM + '-' + breachDD);
 
       if (todayDD == breachDD && todayMM == breachMM){
         console.log(breach);
@@ -65,7 +65,7 @@ class App extends Component {
   }
 
   render() {
-    const { error, isLoaded, items, itemToday } = this.state;
+    const { error, isLoaded, breaches, breachesToday } = this.state;
 
     return (
       <div className="App">
@@ -74,7 +74,7 @@ class App extends Component {
           <h1 className="App-title">Today in History</h1>
         </header>
         <div>
-          <Card item={itemToday} />
+          <Card item={this.getBreachesToday()} />
         </div>
       </div>
     );
