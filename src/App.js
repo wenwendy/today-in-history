@@ -11,7 +11,7 @@ class App extends Component {
         error: null,
         isLoaded: false,
         items: [],
-        itemToday: {"title": "xx", "breachDate": "xx", "domain": "xx", "description": "xx"}
+        itemToday: {}
       };
     }
 
@@ -23,7 +23,7 @@ class App extends Component {
           this.setState({
             isLoaded: true,
             items: result,
-            itemToday: result[100]
+            itemToday: this.getItemToday(result)
           });
         },
         // Note: it's important to handle errors here
@@ -38,6 +38,11 @@ class App extends Component {
       )
   }
 
+
+  getItemToday(items){
+    return items[101];
+  }
+
   render() {
     const { error, isLoaded, items, itemToday } = this.state;
 
@@ -45,12 +50,10 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Today in History again</h1>
+          <h1 className="App-title">Today in History</h1>
         </header>
         <div>
-
           <Card item={itemToday} />
-
         </div>
       </div>
     );
