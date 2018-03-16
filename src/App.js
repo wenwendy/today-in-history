@@ -10,7 +10,8 @@ class App extends Component {
       this.state = {
         error: null,
         isLoaded: false,
-        items: []
+        items: [],
+        itemToday: {"title": "xx", "breachDate": "xx", "domain": "xx", "description": "xx"}
       };
     }
 
@@ -21,7 +22,8 @@ class App extends Component {
         (result) => {
           this.setState({
             isLoaded: true,
-            items: result
+            items: result,
+            itemToday: result[100]
           });
         },
         // Note: it's important to handle errors here
@@ -37,18 +39,19 @@ class App extends Component {
   }
 
   render() {
-    const { error, isLoaded, items } = this.state;
+    const { error, isLoaded, items, itemToday } = this.state;
+
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to Today in History again</h1>
         </header>
-        <ul>
-          {items.map(item => (
-            <Card item={item} />
-          ))}
-        </ul>
+        <div>
+
+          <Card item={itemToday} />
+
+        </div>
       </div>
     );
   }
