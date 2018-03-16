@@ -11,7 +11,7 @@ class App extends Component {
         error: null,
         isLoaded: false,
         breaches: [],
-        breachesToday: {}
+        breachesToday: []
       };
     }
 
@@ -22,9 +22,9 @@ class App extends Component {
         (result) => {
           this.setState({
             isLoaded: true,
-            breaches: result,
-            breachesToday: this.getBreachesToday(result)
+            breaches: result
           });
+          this.getBreachesToday();
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
@@ -49,7 +49,7 @@ class App extends Component {
       var breachDate = new Date(breach.BreachDate);
       var breachDD = breachDate.getDate();
       var breachMM = breachDate.getMonth() + 1;
-      console.log(breach.BreachDate + ': ' + breachMM + '-' + breachDD);
+      //console.log(breach.BreachDate + ': ' + breachMM + '-' + breachDD);
 
       if (todayDD == breachDD && todayMM == breachMM){
         console.log(breach);
@@ -59,12 +59,20 @@ class App extends Component {
 
     if (breachesToday.length == 0)
     {
-      return {};
+      this.setState({
+        breachesToday: []
+      });
     }
-    return breachesToday[0];
+    else{
+      console.log("setting state");
+      this.setState({
+        breachesToday: breachesToday
+      });
+    }
   }
 
   render() {
+    console.log('rendering ...');
     const { error, isLoaded, breaches, breachesToday } = this.state;
 
     return (
@@ -73,9 +81,11 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Today in History</h1>
         </header>
-        <div>
-          <Card item={this.getBreachesToday()} />
-        </div>
+        <ul>
+          {breachesToday.map(breachToday => (
+            <Card item={breachToday} />
+          ))}
+        </ul>
       </div>
     );
   }
