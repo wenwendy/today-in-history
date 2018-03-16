@@ -39,8 +39,29 @@ class App extends Component {
   }
 
 
-  getItemToday(items){
-    return items[101];
+  getItemToday(breaches, today=new Date()){
+    var breachesToday = [];
+    var todayDD = today.getDate();
+    var todayMM = today.getMonth() + 1;
+    //console.log(today + ": " + todayMM + '-' + todayDD);
+
+    breaches.forEach(function(breach){
+      var breachDate = new Date(breach.BreachDate);
+      var breachDD = breachDate.getDate();
+      var breachMM = breachDate.getMonth() + 1;
+      //console.log(breach.BreachDate + ': ' + breachMM + '-' + breachDD);
+
+      if (todayDD == breachDD && todayMM == breachMM){
+        console.log(breach);
+        breachesToday.push(breach);
+      }
+    });
+
+    if (breachesToday.length == 0)
+    {
+      return {};
+    }
+    return breachesToday[0];
   }
 
   render() {
