@@ -14,7 +14,7 @@
 - Render out hyper links in description
 - Handle `App.js error` display
 - Display for no breach day
-
+- Better way to update date / month and refresh breaches?
 
 ### References ###
 - Quick start: https://reactjs.org/docs/add-react-to-a-new-app.html

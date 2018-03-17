@@ -47,16 +47,28 @@ class App extends Component {
     console.log('handle yesterday...');
     e.preventDefault();
     this.setState({
-      todayDD: this.getYesterday()
+      todayDD: this.getYesterdayDD()
     }, () =>{
       this.getBreachesToday();
     });
   }
 
-  getYesterday(){
-    var d = this.state.todayDD;
-    //if (todayDD == 0){}
-    return d - 1;
+  getYesterdayDD(){
+    var d = this.state.todayDD - 1;
+    if (d == 0){
+      var today = new Date(2000, this.state.todayMM - 1, this.state.todayDD);
+      console.log(today);
+      var yesterday = today.setDate(today.getDate() - 1);
+      d = new Date(yesterday).getDate();
+      console.log(d);
+      console.log(new Date(yesterday).getMonth() + 1);
+      this.setState({
+        todayMM: new Date(yesterday).getMonth() + 1
+      }, () =>{
+        this.getBreachesToday();
+      });
+    }
+    return d;
   }
 
   getBreachesToday(){
