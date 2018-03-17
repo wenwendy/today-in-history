@@ -15,6 +15,7 @@
 - Handle `App.js error` display
 - Display for no breach day
 - Better way to update date / month and refresh breaches?
+- Unit tests around date calculations.
 
 ### References ###
 - Quick start: https://reactjs.org/docs/add-react-to-a-new-app.html

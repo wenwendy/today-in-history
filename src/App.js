@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Card from './Card.js'
-import Yesterday from './Yesterday.js'
+import { Yesterday } from './DateNavigator.js'
 
 class App extends Component {
 
@@ -57,13 +57,11 @@ class App extends Component {
     var d = this.state.todayDD - 1;
     if (d == 0){
       var today = new Date(2000, this.state.todayMM - 1, this.state.todayDD);
-      console.log(today);
       var yesterday = today.setDate(today.getDate() - 1);
       d = new Date(yesterday).getDate();
-      console.log(d);
-      console.log(new Date(yesterday).getMonth() + 1);
+      var m =  new Date(yesterday).getMonth() + 1;
       this.setState({
-        todayMM: new Date(yesterday).getMonth() + 1
+        todayMM: m
       }, () =>{
         this.getBreachesToday();
       });
@@ -76,13 +74,11 @@ class App extends Component {
     var breaches = this.state.breaches;
     var todayDD = this.state.todayDD;
     var todayMM = this.state.todayMM;
-    //console.log(today + ": " + todayMM + '-' + todayDD);
 
     breaches.forEach(function(breach){
       var breachDate = new Date(breach.BreachDate);
       var breachDD = breachDate.getDate();
       var breachMM = breachDate.getMonth() + 1;
-      //console.log(breach.BreachDate + ': ' + breachMM + '-' + breachDD);
 
       if (todayDD == breachDD && todayMM == breachMM){
         console.log(breach);
