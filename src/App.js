@@ -14,8 +14,8 @@ class App extends Component {
         isLoaded: false,
         breaches: [],
         breachesToday: [],
-        todayDD: new Date().getDate(),
-        todayMM: new Date().getMonth() + 1
+        todayMM: new Date().getMonth() + 1,
+        todayDD: new Date().getDate()
       };
       this.yesterdayHandler = this.yesterdayHandler.bind(this);
     }
@@ -93,12 +93,13 @@ class App extends Component {
 
   render() {
     console.log('rendering App ...');
-    const { error, isLoaded, breaches, breachesToday } = this.state;
+    const { error, isLoaded, breaches, breachesToday, todayMM, todayDD } = this.state;
 
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Today in History</h1>
+          <h2>{todayMM}-{todayDD}</h2>
         </header>
         <Yesterday handler={this.yesterdayHandler} />
         <ul>
