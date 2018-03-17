@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Card from './Card.js'
-import { Yesterday } from './DateNavigator.js'
+import { Yesterday, Tomorrow } from './DateNavigator.js'
 
 class App extends Component {
 
@@ -18,6 +18,7 @@ class App extends Component {
         todayDD: new Date().getDate()
       };
       this.yesterdayHandler = this.yesterdayHandler.bind(this);
+      this.tomorrowHandler = this.tomorrowHandler.bind(this);
     }
 
   componentDidMount() {
@@ -69,6 +70,16 @@ class App extends Component {
     return d;
   }
 
+  tomorrowHandler(e){
+    console.log('handle tomorrow...');
+    e.preventDefault();
+    this.setState({
+      todayDD: 19
+    }, () =>{
+      this.getBreachesToday();
+    });
+  }
+
   getBreachesToday(){
     var breachesToday = [];
     var breaches = this.state.breaches;
@@ -110,6 +121,7 @@ class App extends Component {
           <h2>{todayMM}-{todayDD}</h2>
         </header>
         <Yesterday handler={this.yesterdayHandler} />
+        <Tomorrow handler={this.tomorrowHandler} />
         <ul>
           {breachesToday.map(breachToday => (
             <Card item={breachToday} />

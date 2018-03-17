@@ -5,3 +5,9 @@ export function Yesterday(props){
     <button onClick={props.handler}> Yesterday </button>
   );
 }
+
+export function Tomorrow(props){
+  return(
+    <button onClick={props.handler}> Tomorrow </button>
+  );
+}
