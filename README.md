@@ -11,7 +11,8 @@
 
 
 ### TODOs ###
-- Render out links in description
+- Render out hyper links in description
+- Handle `App.js error` display
 
 
 ### References ###
@@ -26,3 +27,6 @@
 - "Maximum update depth exceeded. This can happen when a component repeatedly calls setState inside componentWillUpdate or componentDidUpdate. React limits the number of nested updates to prevent infinite loops."
   - Cause: In `render` method, called a method containing `setState`. This caused a re-render and resulted in a loop.
   - Fix 1: Move the method call out of `render` to `componentDidMount`
+- "Unhandled Rejection (TypeError): Cannot read property 'state' of undefined"
+  - Cause: In a `forEach` loop, attempted to access `this.state`
+  - Fix: Use a local variable

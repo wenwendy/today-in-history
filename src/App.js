@@ -11,7 +11,9 @@ class App extends Component {
         error: null,
         isLoaded: false,
         breaches: [],
-        breachesToday: []
+        breachesToday: [],
+        todayDD: new Date().getDate(),
+        todayMM: new Date().getMonth() + 1
       };
     }
 
@@ -39,10 +41,11 @@ class App extends Component {
   }
 
 
-  getBreachesToday(breaches=this.state.breaches, today=new Date()){
+  getBreachesToday(){
     var breachesToday = [];
-    var todayDD = today.getDate();
-    var todayMM = today.getMonth() + 1;
+    var breaches = this.state.breaches;
+    var todayDD = this.state.todayDD;
+    var todayMM = this.state.todayMM;
     //console.log(today + ": " + todayMM + '-' + todayDD);
 
     breaches.forEach(function(breach){
@@ -72,7 +75,7 @@ class App extends Component {
   }
 
   render() {
-    console.log('rendering ...');
+    console.log('rendering App ...');
     const { error, isLoaded, breaches, breachesToday } = this.state;
 
     return (
