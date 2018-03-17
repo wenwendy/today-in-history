@@ -13,6 +13,7 @@
 ### TODOs ###
 - Render out hyper links in description
 - Handle `App.js error` display
+- Display for no breach day
 
 
 ### References ###
@@ -28,5 +29,8 @@
   - Cause: In `render` method, called a method containing `setState`. This caused a re-render and resulted in a loop.
   - Fix 1: Move the method call out of `render` to `componentDidMount`
 - "Unhandled Rejection (TypeError): Cannot read property 'state' of undefined"
-  - Cause: In a `forEach` loop, attempted to access `this.state`
-  - Fix: Use a local variable
+  - Cause 1: Attempted to access `this.state` in a `forEach` loop.
+  - Fix 1: Use a local variable
+- State is not updated after calling `setState`
+  - Cause: `setState` call is not guaranteed to be synchronous.
+  - Fix: Access updated state in a callback method.

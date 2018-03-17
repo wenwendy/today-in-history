@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Card from './Card.js'
+import Yesterday from './Yesterday.js'
 
 class App extends Component {
 
   constructor(props) {
+    console.log('constructing ...');
       super(props);
       this.state = {
         error: null,
@@ -15,6 +17,7 @@ class App extends Component {
         todayDD: new Date().getDate(),
         todayMM: new Date().getMonth() + 1
       };
+      this.yesterdayHandler = this.yesterdayHandler.bind(this);
     }
 
   componentDidMount() {
@@ -40,6 +43,21 @@ class App extends Component {
       )
   }
 
+  yesterdayHandler(e){
+    console.log('handle yesterday...');
+    e.preventDefault();
+    this.setState({
+      todayDD: this.getYesterday()
+    }, () =>{
+      this.getBreachesToday();
+    });
+  }
+
+  getYesterday(){
+    var d = this.state.todayDD;
+    //if (todayDD == 0){}
+    return d - 1;
+  }
 
   getBreachesToday(){
     var breachesToday = [];
@@ -67,7 +85,6 @@ class App extends Component {
       });
     }
     else{
-      console.log("setting state");
       this.setState({
         breachesToday: breachesToday
       });
@@ -81,9 +98,9 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Today in History</h1>
         </header>
+        <Yesterday handler={this.yesterdayHandler} />
         <ul>
           {breachesToday.map(breachToday => (
             <Card item={breachToday} />
