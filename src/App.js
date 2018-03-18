@@ -48,39 +48,35 @@ class App extends Component {
     console.log('handle yesterday...');
     e.preventDefault();
     this.setState({
-      todayDD: this.getYesterdayDD()
-    }, () =>{
-      this.getBreachesToday();
+      todayDD: this.getDateWithOffset(-1)
     });
-  }
-
-  getYesterdayDD(){
-    var d = this.state.todayDD - 1;
-    if (d == 0){
-      var today = new Date(2000, this.state.todayMM - 1, this.state.todayDD);
-      var yesterday = today.setDate(today.getDate() - 1);
-      d = new Date(yesterday).getDate();
-      var m =  new Date(yesterday).getMonth() + 1;
-      this.setState({
-        todayMM: m
-      }, () =>{
-        this.getBreachesToday();
-      });
-    }
-    return d;
   }
 
   tomorrowHandler(e){
     console.log('handle tomorrow...');
     e.preventDefault();
     this.setState({
-      todayDD: 19
-    }, () =>{
-      this.getBreachesToday();
+      todayDD: this.getDateWithOffset(1)
     });
   }
 
+  getDateWithOffset(offset){
+    var d;
+    var today = new Date(2000, this.state.todayMM - 1, this.state.todayDD);
+    var anotherDay = today.setDate(today.getDate() + offset);
+    d = new Date(anotherDay).getDate();
+    var m =  new Date(anotherDay).getMonth() + 1;
+    this.setState({
+      todayMM: m
+    }, () =>{
+      this.getBreachesToday();
+    });
+
+    return d;
+  }
+
   getBreachesToday(){
+    console.log('searching for todays breachs');
     var breachesToday = [];
     var breaches = this.state.breaches;
     var todayDD = this.state.todayDD;
