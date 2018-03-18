@@ -8,7 +8,7 @@ function Card(props) {
       <div>{props.item.Title}</div>
       <div>{props.item.BreachDate}</div>
       <div>{props.item.Domain}</div>
-      <div>{props.item.Description}</div>
+      <div dangerouslySetInnerHTML={{__html: props.item.Description}} />
       <hr />
     </div>
   );
