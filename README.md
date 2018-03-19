@@ -23,6 +23,7 @@
 - Lifecycle: https://reactjs.org/docs/react-component.html
 - Risks of setting InnerHTML: https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml
 - Conditional rendering: https://reactjs.org/docs/conditional-rendering.html
+- Deploy to GitHub page: https://medium.freecodecamp.org/surge-vs-github-pages-deploying-a-create-react-app-project-c0ecbf317089
 
 ### Tools ###
 - React dev tool https://reactjs.org/blog/2015/09/02/new-react-developer-tools.html#installation
