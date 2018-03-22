@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Card from './Card.js'
 import { Yesterday, Tomorrow, Today } from './DateNavigator.js'
@@ -39,7 +38,7 @@ class App extends Component {
         // exceptions from actual bugs in components.
         (error) => {
           this.setState({
-            isLoaded: true,
+            isLoaded: false,
             error
           });
         }
@@ -100,13 +99,13 @@ class App extends Component {
       var breachDD = breachDate.getDate();
       var breachMM = breachDate.getMonth() + 1;
 
-      if (todayDD == breachDD && todayMM == breachMM){
+      if (todayDD === breachDD && todayMM === breachMM){
         console.log(breach);
         breachesToday.push(breach);
       }
     });
 
-    if (breachesToday.length == 0)
+    if (breachesToday.length === 0)
     {
       this.setState({
         breachesToday: []
@@ -121,8 +120,8 @@ class App extends Component {
 
   render() {
     console.log('rendering App ...');
-    const { error, isLoaded, breaches, breachesToday, todayMM, todayDD } = this.state;
-    const todaysView = breachesToday.length == 0 ? (<Peace />):
+    const { breachesToday, todayMM, todayDD } = this.state;
+    const todaysView = breachesToday.length === 0 ? (<Peace />):
       (breachesToday.map(breachToday => (
           <Card item={breachToday} />
       ))
