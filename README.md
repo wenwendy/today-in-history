@@ -13,7 +13,7 @@
 ### TODOs ###
 - Render out hyper links in description safely
 - Handle `App.js error` display
-- Display for no breach day
+- Better display for no breach day
 - Better way to update date / month and refresh breaches (how to avoid callback hell)?
 - Unit tests around date calculations.
 
@@ -22,6 +22,7 @@
 - Import / Export / Default: https://hackernoon.com/import-export-default-require-commandjs-javascript-nodejs-es6-vs-cheatsheet-different-tutorial-example-5a321738b50f
 - Lifecycle: https://reactjs.org/docs/react-component.html
 - Risks of setting InnerHTML: https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml
+- Conditional rendering: https://reactjs.org/docs/conditional-rendering.html
 
 ### Tools ###
 - React dev tool https://reactjs.org/blog/2015/09/02/new-react-developer-tools.html#installation

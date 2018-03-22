@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Card from './Card.js'
 import { Yesterday, Tomorrow, Today } from './DateNavigator.js'
+import Peace from './NoBreach.js'
 
 class App extends Component {
 
@@ -121,23 +122,24 @@ class App extends Component {
   render() {
     console.log('rendering App ...');
     const { error, isLoaded, breaches, breachesToday, todayMM, todayDD } = this.state;
+    const todaysView = breachesToday.length == 0 ? (<Peace />):
+      (breachesToday.map(breachToday => (
+          <Card item={breachToday} />
+      ))
+    );
 
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Today in History</h1>
-          <h2>{todayMM}-{todayDD}</h2>
+          <h1 className="App-title">{todayMM}-{todayDD} in History</h1>
         </header>
         <Yesterday handler={this.yesterdayHandler} />
         <Today handler={this.todayHandler} />
         <Tomorrow handler={this.tomorrowHandler} />
-        <ul>
-          {breachesToday.map(breachToday => (
-            <Card item={breachToday} />
-          ))}
-        </ul>
+        <ul>    {todaysView}        </ul>
       </div>
     );
+
   }
 }
 
