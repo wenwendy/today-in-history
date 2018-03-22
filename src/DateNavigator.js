@@ -11,3 +11,9 @@ export function Tomorrow(props){
     <button onClick={props.handler}> Tomorrow </button>
   );
 }
+
+export function Today(props){
+  return(
+    <button onClick={props.handler}> Today </button>
+  );
+}

@@ -14,7 +14,7 @@
 - Render out hyper links in description safely
 - Handle `App.js error` display
 - Display for no breach day
-- Better way to update date / month and refresh breaches?
+- Better way to update date / month and refresh breaches (how to avoid callback hell)?
 - Unit tests around date calculations.
 
 ### References ###
@@ -30,6 +30,7 @@
 - "Maximum update depth exceeded. This can happen when a component repeatedly calls setState inside componentWillUpdate or componentDidUpdate. React limits the number of nested updates to prevent infinite loops."
   - Cause: In `render` method, called a method containing `setState`. This caused a re-render and resulted in a loop.
   - Fix 1: Move the method call out of `render` to `componentDidMount`
+  - Fix 2: Replace method call with method reference. e.g. remove '()'
 - "Unhandled Rejection (TypeError): Cannot read property 'state' of undefined"
   - Cause 1: Attempted to access `this.state` in a `forEach` loop.
   - Fix 1: Use a local variable
