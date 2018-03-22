@@ -12,6 +12,7 @@
 ### Package ###
 - Open a bash window and navigate to repository root
 - `npm run build`
+- `npm run deploy`
 
 ### TODOs ###
 - Render out hyper links in description safely
