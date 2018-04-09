@@ -122,7 +122,7 @@ class App extends Component {
     console.log('rendering App ...');
     const { breachesToday, todayMM, todayDD } = this.state;
     const isPeace = breachesToday.length === 0;
-    const todaysView = isPeace ? (<Peace />):
+    const todaysView = isPeace ? (<Peace month={todayMM} date={todayDD} />):
       (breachesToday.map(breachToday => (
           <Breach item={breachToday} />
       ))

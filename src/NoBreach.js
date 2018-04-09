@@ -8,9 +8,10 @@ const credit = {
 };
 
 export function Peace(props){
+  const imageAlt = 'It is a peaceful day ...';
   return(
     <div>
-      <img style={imageStyle} src={require ("./matthew-kane-278419-unsplash.jpg")} />
+      <img style={imageStyle} src={require ("./matthew-kane-278419-unsplash.jpg")} alt={imageAlt} />
 
       <span style={credit}>
         {'Photo by '}
