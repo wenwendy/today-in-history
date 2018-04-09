@@ -1,0 +1,16 @@
+button {
+    font-size: 18px;
+    margin: 20px 0px 10px 0px;
+    padding: 5px 20px 5px 20px;
+    border: 1px solid #180018;
+}
+
+button.peace{
+    background-color: aquamarine;
+    color: black;
+}
+
+button.breach {
+    background-color: #FF0080;
+    color: #180018;
+}

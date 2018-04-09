@@ -43,3 +43,6 @@
 - State is not updated after calling `setState`
   - Cause: `setState` call is not guaranteed to be synchronous.
   - Fix: Access updated state in a callback method.
+- Adjacent JSX elements must be wrapped in an enclosing tag
+  - Cause: Returned multiple elements simultaneously
+  - Fix: Wrap the return JSX into one element

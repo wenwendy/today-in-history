@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Card from './Card.js'
+import Breach from './Breach.js'
 import { Yesterday, Tomorrow, Today } from './DateNavigator.js'
 import Peace from './NoBreach.js'
 
@@ -121,21 +121,20 @@ class App extends Component {
   render() {
     console.log('rendering App ...');
     const { breachesToday, todayMM, todayDD } = this.state;
-    const todaysView = breachesToday.length === 0 ? (<Peace />):
+    const isPeace = breachesToday.length === 0;
+    const todaysView = isPeace ? (<Peace />):
       (breachesToday.map(breachToday => (
-          <Card item={breachToday} />
+          <Breach item={breachToday} />
       ))
     );
 
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">{todayMM}-{todayDD} in History</h1>
-        </header>
-        <Yesterday handler={this.yesterdayHandler} />
-        <Today handler={this.todayHandler} />
-        <Tomorrow handler={this.tomorrowHandler} />
-        <ul>    {todaysView}        </ul>
+        <header></header>
+        <Yesterday handler={this.yesterdayHandler} isPeace={isPeace} />
+        <Today handler={this.todayHandler} isPeace={isPeace} />
+        <Tomorrow handler={this.tomorrowHandler} isPeace={isPeace} />
+        {todaysView}
       </div>
     );
 

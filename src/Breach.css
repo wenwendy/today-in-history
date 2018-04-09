@@ -1,0 +1,36 @@
+.breach-container {
+    border-left: 10px solid #FF0080;
+    margin: 10px;
+    padding-top: 10px;
+    background-color: #FDE7EB;
+    color: #180018;
+}
+
+.breach-title{
+    font-size: 20px;
+    margin: 5px;
+}
+
+.breach-date {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.breach-class-container > div {
+    background-color: blanchedalmond;
+    font-size: 12px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
+}
+
+.breach-description {
+    padding: 10px 30px 20px 30px;
+    margin: 5px;
+}
+ 
+.breach-description > a {
+    color: #FF0080;
+}
