@@ -11,6 +11,7 @@
 
 ### Package ###
 - Open a bash window and navigate to repository root
+- `npm install`
 - `npm run build`
 - `npm run deploy`
 
