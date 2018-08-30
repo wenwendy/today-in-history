@@ -2,7 +2,7 @@
 - This is a test project to learn React.
 - Displays security breaches happened today in history.
 - Data source: https://haveibeenpwned.com/api/v2/breaches
-
+- See it live here https://wenwendy.github.io/today-in-history/
 
 ### Run locally ###
 - Open a bash window and navigate to repository root
