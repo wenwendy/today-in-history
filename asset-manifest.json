@@ -1,7 +1,14 @@
 {
-  "main.css": "static/css/main.e95c4692.css",
-  "main.css.map": "static/css/main.e95c4692.css.map",
-  "main.js": "static/js/main.ad0192b4.js",
-  "main.js.map": "static/js/main.ad0192b4.js.map",
-  "static\\media\\matthew-kane-278419-unsplash.jpg": "static/media/matthew-kane-278419-unsplash.6695892a.jpg"
+  "main.css": "/today-in-history/static/css/main.ce36fcc5.chunk.css",
+  "main.js": "/today-in-history/static/js/main.f8dac45d.chunk.js",
+  "main.js.map": "/today-in-history/static/js/main.f8dac45d.chunk.js.map",
+  "static/js/1.849e430c.chunk.js": "/today-in-history/static/js/1.849e430c.chunk.js",
+  "static/js/1.849e430c.chunk.js.map": "/today-in-history/static/js/1.849e430c.chunk.js.map",
+  "runtime~main.js": "/today-in-history/static/js/runtime~main.4e907537.js",
+  "runtime~main.js.map": "/today-in-history/static/js/runtime~main.4e907537.js.map",
+  "static/media/matthew-kane-278419-unsplash.jpg": "/today-in-history/static/media/matthew-kane-278419-unsplash.6695892a.jpg",
+  "static/css/main.ce36fcc5.chunk.css.map": "/today-in-history/static/css/main.ce36fcc5.chunk.css.map",
+  "index.html": "/today-in-history/index.html",
+  "precache-manifest.d9b34754d3bca9288ca3a8942d3f15a2.js": "/today-in-history/precache-manifest.d9b34754d3bca9288ca3a8942d3f15a2.js",
+  "service-worker.js": "/today-in-history/service-worker.js"
 }
