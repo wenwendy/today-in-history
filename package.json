@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://wenwendy.github.io/today-in-history",
   "dependencies": {
-    "react": "^16.8.6",
+    "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "^3.0.1"
   },
